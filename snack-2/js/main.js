@@ -13,38 +13,38 @@ getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 const teams = [
   {
     name: "Inter",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Roma",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Lazio",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Udinese",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Juventus",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Napoli",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
   {
     name: "Genoa",
-    points: getRandomNumber(1, 80),
-    fouls: getRandomNumber(7, 20),
+    points: 0,
+    fouls: 0,
   },
 ];
 console.table(teams);
@@ -52,7 +52,15 @@ console.table(teams);
 const teamsWithoutPoints = [];
 
 for (const team of teams) {
-  delete team.points;
-  teamsWithoutPoints.push(team);
+  const points = getRandomNumber(1, 80);
+  const fouls = getRandomNumber(7, 20);
+
+  team.points = points;
+  team.fouls = fouls;
+
+  const deepTeam = { ...team };
+  delete deepTeam.points;
+  teamsWithoutPoints.push(deepTeam);
 }
 console.table(teamsWithoutPoints);
+console.table(teams);
